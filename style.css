@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hover-color: #12f7ff;
+  --bg-color: #250821;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+h1 {
+  color: var(--hover-color);
+  margin: 50px 40%;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background: var(--hover-color);
+  color: var(--bg-color);
+  font-size: large;
+  font-weight: bold;
+  height: 50px;
+  width: 130px;
+  margin-right: 40px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.btn::before {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background: var(--bg-color);
+  transition: all 0.8s;
+  z-index: -1;
+}
+
+.top::before {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.left::before {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.right::before {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.bottom::before {
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.btn:hover {
+  color: var(--hover-color);
+}
+
+.btn:hover::before {
+  transform: scale(1);
+}
